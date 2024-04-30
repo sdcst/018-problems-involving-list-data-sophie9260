@@ -19,8 +19,16 @@ round(103.2221,2) -> 103.22
 """
 
 openBalance = 1000
-deposits = [200,200,200,200,200,200,200,200,200,200,200,200]            # final: 3328.8
+count = 0
+#deposits = [200,200,200,200,200,200,200,200,200,200,200,200]            # final: 3528.79
 #deposits = [500,1000,300,-250,500,185,-500,205,1200,-550,125,200]      # final: 3887.71
-#deposits = [1000,542,221.52,983,29.75,-10,982.23,10988,287,198,32,100]  # final: 16702.93
+deposits = [1000,542,221.52,983,29.75,-10,982.23,10988,287,198,32,100]  # final: 16702.93
 
-    
+for i in range(0,12):
+    interest = 0.005*openBalance
+    total = openBalance+interest+(deposits[count])
+    openBalance = total
+    openBalance = round(openBalance, 2)
+    count = count+1
+
+print(openBalance)
